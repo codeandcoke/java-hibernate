@@ -26,6 +26,9 @@ import org.sfsoft.hibernate.util.Util;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+* @author Santiago Faci
+*/
 public class Ventana {
 
 	private JFrame frmCine;
@@ -234,7 +237,7 @@ public class Ventana {
 	}
 	public JButton getBtAnadir() {
 		if (btAnadir == null) {
-			btAnadir = new JButton("Añadir");
+			btAnadir = new JButton("Aï¿½adir");
 			btAnadir.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					alta();
