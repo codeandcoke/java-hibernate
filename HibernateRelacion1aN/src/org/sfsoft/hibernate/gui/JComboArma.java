@@ -11,8 +11,7 @@ import org.sfsoft.hibernate.HibernateUtil;
 /**
  * Clase que muestra una lista de todas las armas disponibles
  * @author Santiago Faci
- * @version 1.0
- *
+ * @version curso 2014-2015
  */
 
 public class JComboArma extends JComboBox {

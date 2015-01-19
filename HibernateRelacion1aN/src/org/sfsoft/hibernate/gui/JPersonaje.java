@@ -18,10 +18,10 @@ import javax.swing.JComboBox;
 import org.sfsoft.hibernate.Arma;
 
 /**
- * Dialog con el que el usuario introduce información sobre un Personaje
+ * Dialog con el que el usuario introduce informaci√≥n sobre un Personaje
  * para insertar o modificar
  * @author Santiago Faci
- * @version 2.0
+ * @version curso 2014-2015
  */
 public class JPersonaje extends JDialog {
 
@@ -44,7 +44,7 @@ public class JPersonaje extends JDialog {
 	private JLabel lblEnerga;
 
 	/**
-	 * Getters y setters para obtener y fijar informaciÛn en la ventana
+	 * Getters y setters para obtener y fijar informaci√≥n en la ventana
 	 * @return
 	 */
 	
@@ -89,7 +89,7 @@ public class JPersonaje extends JDialog {
 	}
 	
 	/**
-	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaciÛn de las cajas de texto
+	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaci√≥n de las cajas de texto
 	 * y cierra la ventana
 	 */
 	private void aceptar() {
@@ -217,7 +217,7 @@ public class JPersonaje extends JDialog {
 	}
 	public JLabel getLblEnerga() {
 		if (lblEnerga == null) {
-			lblEnerga = new JLabel("Energ\u00EDa");
+			lblEnerga = new JLabel("Energ√≠a");
 			lblEnerga.setBounds(10, 103, 46, 14);
 		}
 		return lblEnerga;

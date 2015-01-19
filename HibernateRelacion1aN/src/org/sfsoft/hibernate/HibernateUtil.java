@@ -9,8 +9,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 /**
  * Clase que facilita el trabajo con Hibernate
  * @author Santiago Faci
- * @version 1.0
- *
+ * @version curso 2014-2015
  */
 public class HibernateUtil {
 
@@ -30,7 +29,7 @@ public class HibernateUtil {
 	}
 	
 	/**
-	 * Abre una nueva sesión
+	 * Abre una nueva sesi√≥n
 	 */
 	public static void openSession() {
 		
@@ -38,7 +37,7 @@ public class HibernateUtil {
 	}
 	
 	/**
-	 * Devuelve la sesión actual
+	 * Devuelve la sesi√≥n actual
 	 * @return
 	 */
 	public static Session getCurrentSession() {

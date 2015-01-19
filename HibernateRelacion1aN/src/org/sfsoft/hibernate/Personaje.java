@@ -15,7 +15,7 @@ import javax.persistence.Table;
 /**
  * Clase que mapea un objeto Personaje con la tabla de MySQL correspondiente, utilizando anotaciones
  * @author Santiago Faci
- * @version 3.0
+ * @version curso 2014-2015
  */
 @Entity
 @Table(name="personajes")
@@ -43,7 +43,7 @@ public class Personaje implements Serializable {
 	@JoinColumn(name="id_arma")
 	private Arma arma;
 	
-	// Constructor vacÌo. Hibernate puede mostrar algún error si no está implementado
+	// Constructor vac√≠o. Hibernate puede mostrar alg√∫n error si no est√° implementado
 	public Personaje() {}
 	
 	public Personaje(int id, String nombre, int nivel, int energia, int puntos, Arma arma) {

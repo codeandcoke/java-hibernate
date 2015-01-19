@@ -33,11 +33,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Aplicaci髇 que muestra las operaciones CRUD
+ * Aplicaci贸n que muestra las operaciones CRUD
  * (Create, Read, Update, Delete) utilizando Relaciones entre tablas
- * que est醤 relacionadas mediante una relaci髇 uno a muchos
+ * que est谩n relacionadas mediante una relaci贸n uno a muchos
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 
 public class RelacionesHibernate1aN {
@@ -55,8 +55,7 @@ public class RelacionesHibernate1aN {
 	private JScrollPane scrollPane;
 	private JTablaDatos tabla;
 	private JLabel lbTotal;
-	
-	private SessionFactory sessionFactory;
+
 	private JPanel panelSuperior;
 	private JButton btAlta;
 	private JButton btEliminar;
@@ -94,8 +93,8 @@ public class RelacionesHibernate1aN {
 	}
 	
 	/**
-	 * Inicializa la conexi梟 con la Base de Datos
-	 * Hay que tener en cuenta que la configuraci梟 de conexi梟 se encuentra en el fichero hibernate.cfg.xml
+	 * Inicializa la conexi贸n con la Base de Datos
+	 * Hay que tener en cuenta que la configuraci贸n de conexi贸n se encuentra en el fichero hibernate.cfg.xml
 	 */
 	private void conectar() {
 		
@@ -110,7 +109,7 @@ public class RelacionesHibernate1aN {
 	}
 	
 	/**
-	 * Libera los recursos de la conexi梟
+	 * Libera los recursos de la conexi贸n
 	 */
 	private void desconectar() {
 		
@@ -122,13 +121,11 @@ public class RelacionesHibernate1aN {
 	}
 	
 	/**
-	 * Sale de la aplicaci梟
+	 * Sale de la aplicaci贸n
 	 */
 	private void salir() {
-		
-		if (sessionFactory != null)
-			desconectar();
-		
+
+		desconectar();
 		System.exit(0);
 	}
 	
@@ -242,7 +239,7 @@ public class RelacionesHibernate1aN {
 	 */
 	private void initialize() {
 		frmRelacionesHibernate = new JFrame();
-		frmRelacionesHibernate.setTitle("Hola Hibernate\n");
+		frmRelacionesHibernate.setTitle("Relaciones Hibernate 1 a N\n");
 		frmRelacionesHibernate.setBounds(100, 100, 450, 300);
 		frmRelacionesHibernate.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

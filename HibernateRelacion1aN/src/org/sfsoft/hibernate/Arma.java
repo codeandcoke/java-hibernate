@@ -15,8 +15,7 @@ import javax.persistence.Table;
 /**
  * Clase que representa las armas de los Personajes
  * @author Santiago Faci
- * @version 2.0
- *
+ * @version curso 2014-2015
  */
 @Entity
 @Table(name="armas")

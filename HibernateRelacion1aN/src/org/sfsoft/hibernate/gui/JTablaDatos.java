@@ -14,11 +14,10 @@ import org.sfsoft.hibernate.Arma;
 import org.sfsoft.hibernate.HibernateUtil;
 import org.sfsoft.hibernate.Personaje;
 
-
 /**
  * Clase que muestra una lista en una JTable
  * @author Santiago Faci
- * @version 2.0
+ * @version curso 2014-2015
  */
 public class JTablaDatos extends JTable {
 	
@@ -90,7 +89,7 @@ public class JTablaDatos extends JTable {
 	
 	public Arma getArmaSeleccionada() {
 		
-int filaSeleccionada = 0;
+		int filaSeleccionada = 0;
 		
 		filaSeleccionada = getSelectedRow();
 		if (filaSeleccionada == -1)

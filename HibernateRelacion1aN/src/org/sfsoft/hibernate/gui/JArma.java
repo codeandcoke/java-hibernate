@@ -25,9 +25,9 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 /**
- * Dialog para mostrar qué personajes poseen un arma determinada
+ * Dialog para mostrar qu√© personajes poseen un arma determinada
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 public class JArma extends JDialog {
 
@@ -46,7 +46,7 @@ public class JArma extends JDialog {
 
 	
 	/**
-	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaciÛn de las cajas de texto
+	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaci√≥n de las cajas de texto
 	 * y cierra la ventana
 	 */
 	private void aceptar() {
