@@ -18,7 +18,7 @@ import org.sfsoft.hibernate.util.HibernateUtil;
 /**
  * Clase que muestra una lista en una JTable
  * @author Santiago Faci
- * @version 2.0
+ * @version curso 2014-2015
  */
 public class JTablaDatos extends JTable {
 	

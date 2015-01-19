@@ -18,8 +18,7 @@ import javax.persistence.Table;
 /**
  * Clase que representa las armas de los Personajes
  * @author Santiago Faci
- * @version 3.0
- *
+ * @version curso 2014-2015
  */
 @Entity
 @Table(name="armas")
@@ -49,7 +48,7 @@ public class Arma {
 	
 	public Arma() {
 		
-		// En caso de utilizar la interfaz Set, aqu� se implementar�a la clase HashSet
+		// En caso de utilizar la interfaz Set, aquí se implementaría la clase HashSet
 		this.enemigos = new ArrayList<Enemigo>();
 	}
 	

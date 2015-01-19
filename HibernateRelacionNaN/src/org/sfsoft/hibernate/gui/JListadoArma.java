@@ -29,9 +29,9 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 /**
- * Dialog para mostrar qu� personajes poseen un arma determinada
+ * Dialog para mostrar qué personajes poseen un arma determinada
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 public class JListadoArma extends JDialog {
 

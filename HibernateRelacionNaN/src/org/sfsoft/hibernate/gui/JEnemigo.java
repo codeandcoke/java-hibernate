@@ -29,7 +29,7 @@ import javax.swing.JScrollPane;
  * Dialogo con el que el usuario introduce información sobre un Enemigo
  * para insertar o modificar
  * @author Santiago Faci
- * @version 3.0
+ * @version curso 2014-2015
  */
 public class JEnemigo extends JDialog {
 

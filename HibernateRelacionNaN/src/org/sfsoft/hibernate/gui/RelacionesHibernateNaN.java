@@ -28,11 +28,11 @@ import org.sfsoft.hibernate.Enemigo;
 import org.sfsoft.hibernate.util.HibernateUtil;
 
 /**
- * Aplicaci�n que muestra las operaciones CRUD
+ * Aplicación que muestra las operaciones CRUD
  * (Create, Read, Update, Delete) utilizando Relaciones entre tablas
- * que est�n relacionadas mediante una relaci�n muchos a muchos
+ * que están relacionadas mediante una relación muchos a muchos
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 
 public class RelacionesHibernateNaN {
@@ -48,8 +48,7 @@ public class RelacionesHibernateNaN {
 	private JScrollPane scrollPane;
 	private JTablaDatos tabla;
 	private JLabel lbTotal;
-	
-	private SessionFactory sessionFactory;
+
 	private JPanel panelSuperior;
 	private JButton btNuevoPersonaje;
 	private JButton btEliminarPersonaje;
@@ -118,10 +117,8 @@ public class RelacionesHibernateNaN {
 	 * Sale de la aplicación
 	 */
 	private void salir() {
-		
-		if (sessionFactory != null)
-			desconectar();
-		
+
+		desconectar();
 		System.exit(0);
 	}
 	
