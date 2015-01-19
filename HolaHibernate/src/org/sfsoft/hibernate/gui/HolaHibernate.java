@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 /**
  * Aplicación que carga el contenido de una tabla de MySQL utilizando Hibernate
  * @author Santiago Faci
- *
+ * @version curso 2014-2015
  */
 
 public class HolaHibernate {
@@ -56,6 +56,7 @@ public class HolaHibernate {
 			public void run() {
 				try {
 					HolaHibernate window = new HolaHibernate();
+					window.frmHolaHibernate.setLocationRelativeTo(null);
 					window.frmHolaHibernate.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -91,7 +92,7 @@ public class HolaHibernate {
 	}
 	
 	/**
-	 * Libera los recursos de la conexi�n
+	 * Libera los recursos de la conexión
 	 */
 	private void desconectar() {
 		
@@ -100,7 +101,7 @@ public class HolaHibernate {
 	}
 	
 	/**
-	 * Sale de la aplicaci�n
+	 * Sale de la aplicación
 	 */
 	private void salir() {
 		

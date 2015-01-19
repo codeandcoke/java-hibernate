@@ -15,7 +15,7 @@ import org.sfsoft.hibernate.Personaje;
 /**
  * Clase que muestra una lista en una JTable
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 public class JTablaDatos extends JTable {
 	

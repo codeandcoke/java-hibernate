@@ -10,7 +10,7 @@ import javax.persistence.Table;
 /**
  * Clase que mapea un objeto Personaje con la tabla de MySQL correspondiente, utilizando anotaciones
  * @author Santiago Faci
- *
+ * @version curso 2014-2015
  */
 @Entity
 @Table(name="personajes")
