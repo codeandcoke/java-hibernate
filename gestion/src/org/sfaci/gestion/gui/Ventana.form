@@ -266,7 +266,7 @@
                   <text value="Cliente"/>
                 </properties>
               </component>
-              <component id="3f5f0" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="3f5f0" class="javax.swing.JTextField" binding="tfNumeroPedido">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -278,21 +278,21 @@
                   <caretAspectRatio class="java.lang.Float" value="0.04"/>
                 </clientProperties>
               </component>
-              <component id="58069" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+              <component id="58069" class="javax.swing.JComboBox" binding="cbClientePedido">
                 <constraints>
                   <grid row="6" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="7f47c" class="com.toedter.calendar.JDateChooser">
+              <component id="7f47c" class="com.toedter.calendar.JDateChooser" binding="dcFechaEntregaPedido">
                 <constraints>
                   <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="e23c6" class="com.toedter.calendar.JDateChooser">
+              <component id="e23c6" class="com.toedter.calendar.JDateChooser" binding="dcFechaPedido">
                 <constraints>
                   <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
@@ -305,6 +305,7 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties>
+                  <actionCommand value="nuevoPedido"/>
                   <text value="Nuevo"/>
                 </properties>
               </component>
@@ -314,6 +315,7 @@
                   <forms/>
                 </constraints>
                 <properties>
+                  <actionCommand value="guardarPedido"/>
                   <text value="Guardar"/>
                 </properties>
               </component>
@@ -365,7 +367,12 @@
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <component id="90c60" class="javax.swing.JTable" binding="tDetalles">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
               </scrollpane>
               <component id="cb281" class="javax.swing.JButton" binding="btNuevoDetalle">
                 <constraints>

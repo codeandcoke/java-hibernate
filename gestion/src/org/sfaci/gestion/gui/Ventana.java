@@ -1,9 +1,11 @@
 package org.sfaci.gestion.gui;
 
+import com.toedter.calendar.JDateChooser;
 import org.hibernate.HibernateException;
 import org.sfaci.gestion.HibernateUtil;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * GUI
@@ -22,8 +24,8 @@ public class Ventana {
     public JButton btModificarCliente;
     public JButton btEliminarCliente;
     public JLabel lbEstado;
-    public JTextField textField1;
-    public JComboBox comboBox1;
+    public JTextField tfNumeroPedido;
+    public JComboBox cbClientePedido;
     public JButton btNuevoPedido;
     public JButton btGuardarPedido;
     public JList list1;
@@ -33,8 +35,12 @@ public class Ventana {
     public JButton btEliminarDetalle;
     public JButton btNuevoDetalle;
     public JButton btModificarDetalle;
+    public JTable tDetalles;
+    public JDateChooser dcFechaPedido;
+    public JDateChooser dcFechaEntregaPedido;
 
     public DefaultListModel modeloListaClientes;
+    public DefaultTableModel modeloTablaDetalles;
 
     public Ventana() {
         JFrame frame = new JFrame("Gestión");
@@ -50,5 +56,13 @@ public class Ventana {
     private void inicializar() {
         modeloListaClientes = new DefaultListModel();
         lClientes.setModel(modeloListaClientes);
+
+        modeloTablaDetalles = new DefaultTableModel();
+        tDetalles.setModel(modeloTablaDetalles);
+
+        modeloTablaDetalles.addColumn("nombre");
+        modeloTablaDetalles.addColumn("unidades");
+        modeloTablaDetalles.addColumn("precio/u");
+        modeloTablaDetalles.addColumn("subtotal");
     }
 }

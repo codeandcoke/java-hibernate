@@ -3,6 +3,7 @@ package org.sfaci.gestion.gui;
 import org.hibernate.Query;
 import org.sfaci.gestion.HibernateUtil;
 import org.sfaci.gestion.base.Producto;
+import org.sfaci.gestion.util.Util;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -33,8 +34,13 @@ public class JSeleccionProducto extends JDialog
         inicializar();
     }
 
-    public Producto getProducto() { return producto; }
-    public int getCantidad() { return cantidad;}
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
 
     public void mostrarDialogo() {
         setVisible(true);
@@ -68,14 +74,26 @@ public class JSeleccionProducto extends JDialog
                 return;
             }
 
-            cantidad = Integer.parseInt(tfCantidadProducto.getText());            }
+            cantidad = Integer.parseInt(tfCantidadProducto.getText());
             producto = getProductoSeleccionado();
-
-            setVisible(false);
         }
         else {
 
         }
+        setVisible(false);
+    }
+
+    private Producto getProductoSeleccionado() {
+
+        String nombreProducto = (String)
+                tProductos.getValueAt(tProductos.getSelectedRow(), 0);
+
+        Query query = HibernateUtil.getCurrentSession().
+                createQuery("FROM Producto p WHERE p.nombre = :nombre");
+        query.setParameter("nombre", nombreProducto);
+        Producto producto = (Producto) query.uniqueResult();
+
+        return producto;
     }
 
     private void listarProductos() {
@@ -101,7 +119,8 @@ public class JSeleccionProducto extends JDialog
         for (Producto producto : listaProductos) {
 
             Object[] fila = new Object[]{producto.getNombre(),
-                    producto.getDescripcion(), producto.getPrecio()};
+                    producto.getDescripcion(),
+                    Util.formatMoneda(producto.getPrecio())};
             modeloTabla.addRow(fila);
         }
     }

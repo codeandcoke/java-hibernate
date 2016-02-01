@@ -1,9 +1,15 @@
 package org.sfaci.gestion.gui;
 
+import org.sfaci.gestion.base.Cliente;
 import org.sfaci.gestion.base.DetallePedido;
+import org.sfaci.gestion.base.Pedido;
+import org.sfaci.gestion.base.Producto;
+import org.sfaci.gestion.util.Util;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Controlador para la ventana
@@ -35,6 +41,9 @@ public class VentanaController implements ActionListener {
         view.btNuevoDetalle.addActionListener(this);
         view.btModificarDetalle.addActionListener(this);
         view.btEliminarDetalle.addActionListener(this);
+
+        view.btNuevoPedido.addActionListener(this);
+        view.btGuardarPedido.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -66,19 +75,54 @@ public class VentanaController implements ActionListener {
                         new JSeleccionProducto();
                 jProducto.mostrarDialogo();
 
-                DetallePedido detalle = new DetallePedido();
-                detalle.setUnidades(jProducto.getCantidad());
-                detalle.setProducto(jProducto.getProducto());
+                int cantidad = jProducto.getCantidad();
+                Producto producto = jProducto.getProducto();
 
-                listaDetalles.add(detalle);
+                DetallePedido detalle = new DetallePedido();
+                detalle.setUnidades(cantidad);
+                detalle.setPrecio(cantidad * producto.getPrecio());
+                detalle.setProducto(producto);
+
+                model.nuevoDetalle(detalle);
+
+                listarDetalles();
 
                 break;
             case "modificarDetalle":
                 break;
             case "eliminarDetalle":
                 break;
+            case "nuevoPedido":
+                view.tfNumeroPedido.setText("");
+                view.dcFechaEntregaPedido.setDate(null);
+                view.dcFechaPedido.setDate(null);
+
+                model.nuevoPedido();
+                break;
+            case "guardarPedido":
+                String numero = view.tfNumeroPedido.getText();
+                Date fecha = view.dcFechaPedido.getDate();
+                Date fechaEntrega = view.dcFechaEntregaPedido.getDate();
+                Cliente cliente = (Cliente) view.cbClientePedido.getSelectedItem();
+                model.guardarPedido(numero, fecha, fechaEntrega, cliente);
+                break;
             default:
                 break;
+        }
+    }
+
+    private void listarDetalles() {
+        ArrayList<DetallePedido> detalles= model.getDetalles();
+
+        view.modeloTablaDetalles.setNumRows(0);
+        for (DetallePedido detalle : detalles) {
+            Object[] fila = new Object[]{
+                    detalle.getProducto().getNombre(),
+                    detalle.getUnidades(),
+                    Util.formatMoneda(detalle.getProducto().getPrecio()),
+                    Util.formatMoneda(detalle.getPrecio())
+            };
+            view.modeloTablaDetalles.addRow(fila);
         }
     }
 }
