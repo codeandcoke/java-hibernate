@@ -48,6 +48,7 @@ public class VentanaController implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
 
+        Cliente cliente = null;
         String actionCommand = event.getActionCommand();
 
         switch (actionCommand) {
@@ -62,9 +63,20 @@ public class VentanaController implements ActionListener {
                 view.tfTelefono.setEditable(true);
                 break;
             case "guardarCliente":
-
+                cliente = new Cliente();
+                cliente.setNombre(view.tfNombreCliente.getText());
+                cliente.setApellidos(view.tfApellidos.getText());
+                cliente.setEmail(view.tfEmail.getText());
+                cliente.setTelefono(view.tfTelefono.getText());
+                model.guardarCliente(cliente);
                 break;
             case "modificarCliente":
+                //cliente = lClientes.get
+                cliente.setNombre(view.tfNombreCliente.getText());
+                cliente.setApellidos(view.tfApellidos.getText());
+                cliente.setEmail(view.tfEmail.getText());
+                cliente.setTelefono(view.tfTelefono.getText());
+                //model.modificarCliente(cliente);
                 break;
             case "eliminarCliente":
                 break;
@@ -96,14 +108,12 @@ public class VentanaController implements ActionListener {
                 view.tfNumeroPedido.setText("");
                 view.dcFechaEntregaPedido.setDate(null);
                 view.dcFechaPedido.setDate(null);
-
-                model.nuevoPedido();
                 break;
             case "guardarPedido":
                 String numero = view.tfNumeroPedido.getText();
                 Date fecha = view.dcFechaPedido.getDate();
                 Date fechaEntrega = view.dcFechaEntregaPedido.getDate();
-                Cliente cliente = (Cliente) view.cbClientePedido.getSelectedItem();
+                cliente = (Cliente) view.cbClientePedido.getSelectedItem();
                 model.guardarPedido(numero, fecha, fechaEntrega, cliente);
                 break;
             default:
