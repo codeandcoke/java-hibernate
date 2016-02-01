@@ -110,11 +110,19 @@ public class VentanaController implements ActionListener {
                 view.dcFechaPedido.setDate(null);
                 break;
             case "guardarPedido":
+
                 String numero = view.tfNumeroPedido.getText();
                 Date fecha = view.dcFechaPedido.getDate();
                 Date fechaEntrega = view.dcFechaEntregaPedido.getDate();
                 cliente = (Cliente) view.cbClientePedido.getSelectedItem();
-                model.guardarPedido(numero, fecha, fechaEntrega, cliente);
+
+                Pedido pedido = new Pedido();
+                pedido.setNumero(numero);
+                pedido.setFecha(fecha);
+                pedido.setFechaEntrega(fechaEntrega);
+                pedido.setCliente(cliente);
+
+                model.guardarPedido(pedido);
                 break;
             default:
                 break;

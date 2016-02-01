@@ -87,14 +87,7 @@ public class VentanaModel {
         return detalles;
     }
 
-    public void guardarPedido(String numero, Date fecha,
-        Date fechaEntrega, Cliente cliente) {
-
-        Pedido pedido = new Pedido();
-        pedido.setNumero(numero);
-        pedido.setFecha(fecha);
-        pedido.setFechaEntrega(fechaEntrega);
-        pedido.setCliente(cliente);
+    public void guardarPedido(Pedido pedido) {
 
         Session sesion = HibernateUtil.getCurrentSession();
         sesion.beginTransaction();
