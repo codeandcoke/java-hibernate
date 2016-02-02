@@ -45,6 +45,10 @@ public class VentanaModel {
         }
     }
 
+    /**
+     * Registra un cliente en la base de datos
+     * @param cliente
+     */
     public void guardarCliente(Cliente cliente) {
         Session sesion = HibernateUtil.getCurrentSession();
         sesion.beginTransaction();
@@ -53,14 +57,47 @@ public class VentanaModel {
         sesion.close();
     }
 
-    public void modificarCliente() {
-
+    /**
+     * Modifica un cliente
+     * @param cliente
+     */
+    public void modificarCliente(Cliente cliente) {
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.update(cliente);
+        sesion.getTransaction().commit();
+        sesion.close();
     }
 
-    public void eliminarCliente() {
-
+    /**
+     * Elimina un cliente de la Base de Datos
+     */
+    public void eliminarCliente(Cliente cliente) {
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.delete(cliente);
+        sesion.getTransaction().commit();
+        sesion.close();
     }
 
+    /**
+     * Obtiene un cliente a partir de su nombre
+     * @param nombre
+     * @return
+     */
+    public Cliente getCliente(String nombre) {
+
+        Query query = HibernateUtil.getCurrentSession().createQuery("FROM Cliente c WHERE c.nombre = :nombre");
+        query.setParameter("nombre", nombre);
+        Cliente cliente = (Cliente) query.uniqueResult();
+
+        return cliente;
+    }
+
+    /**
+     * Obtiene el listado de todos los clientes
+     * @return
+     */
     public ArrayList<Cliente> getClientes() {
 
         Query query = HibernateUtil.getCurrentSession().

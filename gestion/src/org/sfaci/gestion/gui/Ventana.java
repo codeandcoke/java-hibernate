@@ -1,8 +1,6 @@
 package org.sfaci.gestion.gui;
 
 import com.toedter.calendar.JDateChooser;
-import org.hibernate.HibernateException;
-import org.sfaci.gestion.HibernateUtil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Ventana {
     private JPanel panel1;
-    public JTabbedPane tabbedPane1;
+    public JTabbedPane tbPanel;
     public JTextField tfNombreCliente;
     public JTextField tfApellidos;
     public JTextField tfEmail;
@@ -28,7 +26,7 @@ public class Ventana {
     public JComboBox cbClientePedido;
     public JButton btNuevoPedido;
     public JButton btGuardarPedido;
-    public JList list1;
+    public JList lPedidos;
     public JButton btCancelarPedido;
     public JButton btModificarPedido;
     public JButton btEliminarPedido;
@@ -40,6 +38,7 @@ public class Ventana {
     public JDateChooser dcFechaEntregaPedido;
 
     public DefaultListModel modeloListaClientes;
+    public DefaultListModel modeloListaPedidos;
     public DefaultTableModel modeloTablaDetalles;
 
     public Ventana() {
@@ -59,6 +58,9 @@ public class Ventana {
 
         modeloTablaDetalles = new DefaultTableModel();
         tDetalles.setModel(modeloTablaDetalles);
+
+        modeloListaPedidos = new DefaultListModel();
+        lPedidos.setModel(modeloListaPedidos);
 
         modeloTablaDetalles.addColumn("nombre");
         modeloTablaDetalles.addColumn("unidades");

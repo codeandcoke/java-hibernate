@@ -6,15 +6,18 @@ import org.sfaci.gestion.base.Pedido;
 import org.sfaci.gestion.base.Producto;
 import org.sfaci.gestion.util.Util;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Controlador para la ventana
  */
-public class VentanaController implements ActionListener {
+public class VentanaController implements ActionListener, ChangeListener {
 
     private VentanaModel model;
     private Ventana view;
@@ -31,6 +34,9 @@ public class VentanaController implements ActionListener {
         model.conectar();
     }
 
+    /**
+     * Añade los eventos a los controles
+     */
     public void addListeners() {
         view.btCancelarCliente.addActionListener(this);
         view.btNuevoCliente.addActionListener(this);
@@ -44,6 +50,8 @@ public class VentanaController implements ActionListener {
 
         view.btNuevoPedido.addActionListener(this);
         view.btGuardarPedido.addActionListener(this);
+
+        view.tbPanel.addChangeListener(this);
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -71,12 +79,12 @@ public class VentanaController implements ActionListener {
                 model.guardarCliente(cliente);
                 break;
             case "modificarCliente":
-                //cliente = lClientes.get
+                cliente = model.getCliente((String) view.lClientes.getSelectedValue());
                 cliente.setNombre(view.tfNombreCliente.getText());
                 cliente.setApellidos(view.tfApellidos.getText());
                 cliente.setEmail(view.tfEmail.getText());
                 cliente.setTelefono(view.tfTelefono.getText());
-                //model.modificarCliente(cliente);
+                model.modificarCliente(cliente);
                 break;
             case "eliminarCliente":
                 break;
@@ -129,6 +137,33 @@ public class VentanaController implements ActionListener {
         }
     }
 
+    @Override
+    public void stateChanged(ChangeEvent e) {
+
+        int indice = view.tbPanel.getSelectedIndex();
+        switch (indice) {
+            case 0:
+                List<Cliente> listaClientes = model.getClientes();
+                for (Cliente cliente : listaClientes) {
+                    view.modeloListaClientes.addElement(cliente);
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                List<Pedido> listaPedidos = model.getPedidos();
+                for (Pedido pedido : listaPedidos) {
+                    view.modeloListaPedidos.addElement(pedido);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Lista los detalles de un Pedido en su tabla
+     */
     private void listarDetalles() {
         ArrayList<DetallePedido> detalles= model.getDetalles();
 
