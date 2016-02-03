@@ -85,6 +85,9 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <component id="e695c" class="javax.swing.JTextField" binding="tfApellidos">
                 <constraints>
@@ -94,6 +97,9 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <component id="c6910" class="javax.swing.JTextField" binding="tfEmail">
                 <constraints>
@@ -103,6 +109,9 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <component id="5a99b" class="javax.swing.JTextField" binding="tfTelefono">
                 <constraints>
@@ -112,6 +121,9 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <scrollpane id="c9f8a">
                 <constraints>
@@ -179,15 +191,157 @@
               </component>
             </children>
           </grid>
-          <grid id="7b34c" layout-manager="FormLayout">
-            <rowspec value="center:d:grow"/>
+          <grid id="a89ba" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <colspec value="fill:d:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:187px:grow"/>
+            <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:d:grow"/>
             <constraints>
               <tabbedpane title="Productos"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="4450" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Nombre"/>
+                </properties>
+              </component>
+              <component id="e9fed" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Descripción"/>
+                </properties>
+              </component>
+              <component id="50449" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Precio"/>
+                </properties>
+              </component>
+              <component id="ff910" class="javax.swing.JTextField" binding="tfNombreProducto">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
+              </component>
+              <component id="ac63c" class="javax.swing.JTextField" binding="tfDescripcionProducto">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
+              </component>
+              <scrollpane id="a2e85">
+                <constraints>
+                  <grid row="0" column="4" row-span="7" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="e274" class="javax.swing.JList">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="97dc8" class="javax.swing.JButton" binding="btNuevoProducto">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="nuevoCliente"/>
+                  <text value="Nuevo"/>
+                </properties>
+              </component>
+              <component id="38c53" class="javax.swing.JButton" binding="btGuardarProducto">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="guardarProducto"/>
+                  <text value="Guardar"/>
+                </properties>
+              </component>
+              <component id="795ef" class="javax.swing.JButton">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="cancelarCliente"/>
+                  <text value="Cancelar"/>
+                </properties>
+              </component>
+              <component id="ec5b9" class="javax.swing.JButton">
+                <constraints>
+                  <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="modificarCliente"/>
+                  <text value="Modificar"/>
+                </properties>
+              </component>
+              <component id="e9cdb" class="javax.swing.JButton">
+                <constraints>
+                  <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="eliminarCliente"/>
+                  <text value="Eliminar"/>
+                </properties>
+              </component>
+              <component id="6c17d" class="javax.swing.JFormattedTextField" binding="tfPrecioProducto">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Double" value="0.025"/>
+                </clientProperties>
+              </component>
+            </children>
           </grid>
           <grid id="8e986" layout-manager="FormLayout">
             <rowspec value="center:d:noGrow"/>
@@ -262,6 +416,9 @@
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <component id="58069" class="javax.swing.JComboBox" binding="cbClientePedido">
                 <constraints>
@@ -275,12 +432,14 @@
                   <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
+                <properties/>
               </component>
               <component id="e23c6" class="com.toedter.calendar.JDateChooser" binding="dcFechaPedido">
                 <constraints>
                   <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
+                <properties/>
               </component>
               <component id="8dffb" class="javax.swing.JButton" binding="btNuevoPedido">
                 <constraints>

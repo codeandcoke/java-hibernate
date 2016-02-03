@@ -36,6 +36,11 @@ public class Ventana {
     public JTable tDetalles;
     public JDateChooser dcFechaPedido;
     public JDateChooser dcFechaEntregaPedido;
+    public JButton btNuevoProducto;
+    public JButton btGuardarProducto;
+    public JFormattedTextField tfPrecioProducto;
+    public JTextField tfDescripcionProducto;
+    public JTextField tfNombreProducto;
 
     public DefaultListModel modeloListaClientes;
     public DefaultListModel modeloListaPedidos;

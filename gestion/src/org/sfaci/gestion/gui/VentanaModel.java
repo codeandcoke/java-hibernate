@@ -7,6 +7,7 @@ import org.sfaci.gestion.HibernateUtil;
 import org.sfaci.gestion.base.Cliente;
 import org.sfaci.gestion.base.DetallePedido;
 import org.sfaci.gestion.base.Pedido;
+import org.sfaci.gestion.base.Producto;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,7 +88,8 @@ public class VentanaModel {
      */
     public Cliente getCliente(String nombre) {
 
-        Query query = HibernateUtil.getCurrentSession().createQuery("FROM Cliente c WHERE c.nombre = :nombre");
+        Query query = HibernateUtil.getCurrentSession().
+                createQuery("FROM Cliente c WHERE c.nombre = :nombre");
         query.setParameter("nombre", nombre);
         Cliente cliente = (Cliente) query.uniqueResult();
 
@@ -107,10 +109,84 @@ public class VentanaModel {
         return clientes;
     }
 
+    /**
+     * Registra un producto en la base de datos
+     * @param producto
+     */
+    public void guardarProducto(Producto producto) {
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.save(producto);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+
+    /**
+     * Modifica un producto
+     * @param producto
+     */
+    public void modificarProducto(Producto producto) {
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.update(producto);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+
+    /**
+     * Elimina un producto de la Base de Datos
+     */
+    public void eliminarProducto(Producto producto) {
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.delete(producto);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+
+    /**
+     * Obtiene un producto a partir de su nombre
+     * @param nombre
+     * @return
+     */
+    public Producto getProducto(String nombre) {
+
+        Query query = HibernateUtil.getCurrentSession().
+                createQuery("FROM Producto p WHERE p.nombre = :nombre");
+        query.setParameter("nombre", nombre);
+        Producto producto = (Producto) query.uniqueResult();
+
+        return producto;
+    }
+
+    /**
+     * Obtiene el listado de todos los productos
+     * @return
+     */
+    public ArrayList<Producto> getProductos() {
+
+        Query query = HibernateUtil.getCurrentSession().
+                createQuery("FROM Producto");
+        ArrayList<Producto> productos = (ArrayList<Producto>) query.list();
+
+        return productos;
+    }
+
+
+    /**
+     * Añade un nuevo detalle a la lista temporal de detalles
+     * del pedido en curso
+     * @param detalle
+     */
     public void nuevoDetalle(DetallePedido detalle) {
         detalles.add(detalle);
     }
 
+    /**
+     * Obtiene los detalles de un Pedido
+     * @param numeroPedido El número de pedido
+     * @return
+     */
     public ArrayList<DetallePedido> getDetalles(String numeroPedido) {
 
         Query query = HibernateUtil.getCurrentSession().
@@ -124,6 +200,10 @@ public class VentanaModel {
         return detalles;
     }
 
+    /**
+     * Registra un nuevo pedido en la Base de Datos
+     * @param pedido
+     */
     public void guardarPedido(Pedido pedido) {
 
         Session sesion = HibernateUtil.getCurrentSession();
@@ -138,6 +218,36 @@ public class VentanaModel {
         sesion.close();
     }
 
+    /**
+     * Modifica un pedido en la Base de Datos
+     * @param pedido
+     */
+    public void modificarPedido(Pedido pedido) {
+
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.update(pedido);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+
+    /**
+     * Elimina un pedido de la Base de Datos
+     * @param pedido
+     */
+    public void eliminarPedido(Pedido pedido) {
+
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+        sesion.delete(pedido);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+
+    /**
+     * Obtiene todos los pedidos de la Base de Datos
+     * @return
+     */
     public ArrayList<Pedido> getPedidos() {
 
         Query query = HibernateUtil.getCurrentSession().
@@ -145,5 +255,21 @@ public class VentanaModel {
         ArrayList<Pedido> pedidos = (ArrayList<Pedido>) query.list();
 
         return pedidos;
+    }
+
+    /**
+     * Obtiene un pedido
+     * @param numero El número de pedido
+     * @return
+     */
+    public Pedido getPedido(String numero) {
+
+        Query query = HibernateUtil.getCurrentSession().
+                createQuery("FROM Pedido p WHERE p.numero = :numero");
+        query.setParameter("numero", numero);
+
+        Pedido pedido = (Pedido) query.uniqueResult();
+
+        return pedido;
     }
 }

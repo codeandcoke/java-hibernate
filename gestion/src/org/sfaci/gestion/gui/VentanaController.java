@@ -6,10 +6,14 @@ import org.sfaci.gestion.base.Pedido;
 import org.sfaci.gestion.base.Producto;
 import org.sfaci.gestion.util.Util;
 
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.text.DefaultFormatterFactory;
+import java.awt.event.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,10 +21,13 @@ import java.util.List;
 /**
  * Controlador para la ventana
  */
-public class VentanaController implements ActionListener, ChangeListener {
+public class VentanaController implements ActionListener, ChangeListener,
+        MouseListener, FocusListener {
 
     private VentanaModel model;
     private Ventana view;
+
+    private boolean nuevoCliente;
 
     public VentanaController(VentanaModel model, Ventana view) {
         this.model = model;
@@ -32,6 +39,62 @@ public class VentanaController implements ActionListener, ChangeListener {
 
     private void inicializar() {
         model.conectar();
+
+
+        modoEdicionCliente(false, true);
+        modoEdicionProducto(false, true);
+        modoEdicionPedido(false, true);
+
+        listarClientes();
+
+        DefaultFormatterFactory dff = new DefaultFormatterFactory();
+        dff.set
+
+        view.tfPrecioProducto.setFormatterFactory(
+                DefaultFormatterFactory
+        );
+    }
+
+    private void modoEdicionCliente(boolean editable,
+                                    boolean nuevo) {
+
+        view.tfNombreCliente.setEditable(editable);
+        view.tfApellidos.setEditable(editable);
+        view.tfEmail.setEditable(editable);
+        view.tfTelefono.setEditable(editable);
+
+        if (nuevo) {
+            view.tfNombreCliente.setText("");
+            view.tfApellidos.setText("");
+            view.tfEmail.setText("");
+            view.tfTelefono.setText("");
+        }
+    }
+
+    private void modoEdicionProducto(boolean editable,
+                                     boolean nuevo) {
+
+
+    }
+
+    /**
+     * Cambia el modo edicion/vista de la pestaña de clientes
+     * @param editable Indica si las cajas deben ser editables
+     * @param nuevo Indica si el texto de las cajas debe
+     *              ser borrado
+     */
+    private void modoEdicionPedido(boolean editable,
+                                   boolean nuevo) {
+
+        view.tfNumeroPedido.setEditable(editable);
+        view.dcFechaEntregaPedido.setEnabled(editable);
+        view.dcFechaPedido.setEnabled(editable);
+
+        if (nuevo) {
+            view.tfNumeroPedido.setText("");
+            view.dcFechaEntregaPedido.setDate(null);
+            view.dcFechaPedido.setDate(null);
+        }
     }
 
     /**
@@ -44,6 +107,8 @@ public class VentanaController implements ActionListener, ChangeListener {
         view.btEliminarCliente.addActionListener(this);
         view.btModificarCliente.addActionListener(this);
 
+        view.btGuardarProducto.addActionListener(this);
+
         view.btNuevoDetalle.addActionListener(this);
         view.btModificarDetalle.addActionListener(this);
         view.btEliminarDetalle.addActionListener(this);
@@ -52,6 +117,10 @@ public class VentanaController implements ActionListener, ChangeListener {
         view.btGuardarPedido.addActionListener(this);
 
         view.tbPanel.addChangeListener(this);
+
+        view.lClientes.addMouseListener(this);
+
+        view.tfPrecioProducto.addFocusListener(this);
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -61,34 +130,55 @@ public class VentanaController implements ActionListener, ChangeListener {
 
         switch (actionCommand) {
             case "nuevoCliente":
-                view.tfNombreCliente.setText("");
-                view.tfNombreCliente.setEditable(true);
-                view.tfApellidos.setText("");
-                view.tfApellidos.setEditable(true);
-                view.tfEmail.setText("");
-                view.tfEmail.setEditable(true);
-                view.tfTelefono.setText("");
-                view.tfTelefono.setEditable(true);
+                modoEdicionCliente(true, true);
+                nuevoCliente = true;
                 break;
             case "guardarCliente":
-                cliente = new Cliente();
+                if (nuevoCliente)
+                    cliente = new Cliente();
+                else
+                    cliente = (Cliente) view.lClientes.getSelectedValue();
+
                 cliente.setNombre(view.tfNombreCliente.getText());
                 cliente.setApellidos(view.tfApellidos.getText());
                 cliente.setEmail(view.tfEmail.getText());
                 cliente.setTelefono(view.tfTelefono.getText());
-                model.guardarCliente(cliente);
+                if (nuevoCliente)
+                    model.guardarCliente(cliente);
+                else {
+                    if (Util.mensajeConfirmacion("Modificar", "¿Está seguro?") ==
+                            JOptionPane.NO_OPTION)
+                        return;
+
+                    model.modificarCliente(cliente);
+                }
+
+                modoEdicionCliente(false, false);
+                listarClientes();
                 break;
             case "modificarCliente":
-                cliente = model.getCliente((String) view.lClientes.getSelectedValue());
-                cliente.setNombre(view.tfNombreCliente.getText());
-                cliente.setApellidos(view.tfApellidos.getText());
-                cliente.setEmail(view.tfEmail.getText());
-                cliente.setTelefono(view.tfTelefono.getText());
-                model.modificarCliente(cliente);
+                nuevoCliente = false;
+                modoEdicionCliente(true, false);
                 break;
             case "eliminarCliente":
+                if (Util.mensajeConfirmacion("Eliminar", "¿Está seguro?") ==
+                        JOptionPane.NO_OPTION)
+                    return;
+
+                cliente = (Cliente) view.lClientes.getSelectedValue();
+                model.eliminarCliente(cliente);
+                listarClientes();
                 break;
             case "cancelarCliente":
+                break;
+            case "guardarProducto":
+                try {
+                    float precio = Util.unFormatMoneda(
+                            view.tfPrecioProducto.getText());
+                    System.out.println(precio);
+                } catch (ParseException pe) {
+                    Util.mensajeError("Precio", "Precio no válido");
+                }
                 break;
             case "nuevoDetalle":
                 JSeleccionProducto jProducto =
@@ -132,6 +222,14 @@ public class VentanaController implements ActionListener, ChangeListener {
 
                 model.guardarPedido(pedido);
                 break;
+            case "modificarPedido":
+
+                break;
+            case "eliminarPedido":
+                if (Util.mensajeConfirmacion("Eliminar", "¿Está seguro?") ==
+                        JOptionPane.NO_OPTION)
+                    return;
+                break;
             default:
                 break;
         }
@@ -143,21 +241,45 @@ public class VentanaController implements ActionListener, ChangeListener {
         int indice = view.tbPanel.getSelectedIndex();
         switch (indice) {
             case 0:
-                List<Cliente> listaClientes = model.getClientes();
-                for (Cliente cliente : listaClientes) {
-                    view.modeloListaClientes.addElement(cliente);
-                }
+                listarClientes();
                 break;
             case 1:
+                listarProductos();
                 break;
             case 2:
-                List<Pedido> listaPedidos = model.getPedidos();
-                for (Pedido pedido : listaPedidos) {
-                    view.modeloListaPedidos.addElement(pedido);
-                }
+                listarPedidos();
                 break;
             default:
                 break;
+        }
+    }
+
+    /**
+     * Carga la lista de clientes en pantalla
+     */
+    private void listarClientes() {
+        List<Cliente> listaClientes = model.getClientes();
+        view.modeloListaClientes.removeAllElements();
+        for (Cliente cliente : listaClientes) {
+            view.modeloListaClientes.addElement(cliente);
+        }
+    }
+
+    /**
+     * Carga la lista de productos en pantalla
+     */
+    private void listarProductos() {
+
+    }
+
+    /**
+     * Carga la lista de pedidos en pantalla
+     */
+    private void listarPedidos() {
+        List<Pedido> listaPedidos = model.getPedidos();
+        view.modeloListaPedidos.removeAllElements();
+        for (Pedido pedido : listaPedidos) {
+            view.modeloListaPedidos.addElement(pedido);
         }
     }
 
@@ -177,5 +299,54 @@ public class VentanaController implements ActionListener, ChangeListener {
             };
             view.modeloTablaDetalles.addRow(fila);
         }
+    }
+
+    /**
+     * Carga los datos del cliente en el formulario
+     * @param cliente
+     */
+    private void mostrarCliente(Cliente cliente) {
+
+        view.tfNombreCliente.setText(cliente.getNombre());
+        view.tfApellidos.setText(cliente.getApellidos());
+        view.tfEmail.setText(cliente.getEmail());
+        view.tfTelefono.setText(cliente.getTelefono());
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Cliente cliente = (Cliente) view.lClientes.getSelectedValue();
+        mostrarCliente(cliente);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+
+
     }
 }
