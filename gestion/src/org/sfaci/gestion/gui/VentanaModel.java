@@ -4,14 +4,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.sfaci.gestion.HibernateUtil;
-import org.sfaci.gestion.base.Cliente;
-import org.sfaci.gestion.base.DetallePedido;
-import org.sfaci.gestion.base.Pedido;
-import org.sfaci.gestion.base.Producto;
+import org.sfaci.gestion.base.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Modelo para la ventana
@@ -271,5 +269,19 @@ public class VentanaModel {
         Pedido pedido = (Pedido) query.uniqueResult();
 
         return pedido;
+    }
+
+    public void crearCategoria(Categoria categoria,
+                               List<Producto> productos) {
+
+        Session sesion = HibernateUtil.getCurrentSession();
+        sesion.beginTransaction();
+
+        for (Producto producto : productos) {
+            categoria.getProductos().add(producto);
+        }
+        sesion.save(categoria);
+        sesion.getTransaction().commit();
+        sesion.close();
     }
 }

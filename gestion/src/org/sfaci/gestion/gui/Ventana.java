@@ -41,10 +41,15 @@ public class Ventana {
     public JFormattedTextField tfPrecioProducto;
     public JTextField tfDescripcionProducto;
     public JTextField tfNombreProducto;
+    public JTextField tfNombreCategoria;
+    public JTextField tfDescripcionCategoria;
+    public JButton btCrearCategoria;
+    public JList lProductosCategoria;
 
     public DefaultListModel modeloListaClientes;
     public DefaultListModel modeloListaPedidos;
     public DefaultTableModel modeloTablaDetalles;
+    public DefaultListModel modeloListaProductosCategoria;
 
     public Ventana() {
         JFrame frame = new JFrame("Gestión");
@@ -66,6 +71,9 @@ public class Ventana {
 
         modeloListaPedidos = new DefaultListModel();
         lPedidos.setModel(modeloListaPedidos);
+
+        modeloListaProductosCategoria = new DefaultListModel();
+        lProductosCategoria.setModel(modeloListaProductosCategoria);
 
         modeloTablaDetalles.addColumn("nombre");
         modeloTablaDetalles.addColumn("unidades");

@@ -1,6 +1,7 @@
 package org.sfaci.gestion.base;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,13 @@ public class Producto {
 
     @OneToMany(mappedBy="producto")
     private List<DetallePedido> detallesPedido;
+    @ManyToMany(mappedBy="productos")
+    private List<Categoria> categorias;
+
+    public Producto() {
+        detallesPedido = new ArrayList<DetallePedido>();
+        categorias = new ArrayList<Categoria>();
+    }
 
     public int getId() {
         return id;
@@ -58,5 +66,14 @@ public class Producto {
 
     public void setDetallesPedido(List<DetallePedido> detallesPedido) {
         this.detallesPedido = detallesPedido;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

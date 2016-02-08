@@ -1,9 +1,6 @@
 package org.sfaci.gestion.gui;
 
-import org.sfaci.gestion.base.Cliente;
-import org.sfaci.gestion.base.DetallePedido;
-import org.sfaci.gestion.base.Pedido;
-import org.sfaci.gestion.base.Producto;
+import org.sfaci.gestion.base.*;
 import org.sfaci.gestion.util.Util;
 
 import javax.swing.*;
@@ -46,13 +43,6 @@ public class VentanaController implements ActionListener, ChangeListener,
         modoEdicionPedido(false, true);
 
         listarClientes();
-
-        DefaultFormatterFactory dff = new DefaultFormatterFactory();
-        dff.set
-
-        view.tfPrecioProducto.setFormatterFactory(
-                DefaultFormatterFactory
-        );
     }
 
     private void modoEdicionCliente(boolean editable,
@@ -119,6 +109,9 @@ public class VentanaController implements ActionListener, ChangeListener,
         view.tbPanel.addChangeListener(this);
 
         view.lClientes.addMouseListener(this);
+        view.lProductosCategoria.addMouseListener(this);
+
+        view.btCrearCategoria.addActionListener(this);
 
         view.tfPrecioProducto.addFocusListener(this);
     }
@@ -230,6 +223,16 @@ public class VentanaController implements ActionListener, ChangeListener,
                         JOptionPane.NO_OPTION)
                     return;
                 break;
+            case "crearCategoria":
+                Categoria categoria = new Categoria();
+                categoria.setNombre(view.tfNombreCategoria.getText());
+                categoria.setDescripcion(view.tfDescripcionCategoria.getText());
+
+                List<Producto> listaProductos =
+                        view.lProductosCategoria.getSelectedValuesList();
+
+                model.crearCategoria(categoria, listaProductos);
+                break;
             default:
                 break;
         }
@@ -248,6 +251,9 @@ public class VentanaController implements ActionListener, ChangeListener,
                 break;
             case 2:
                 listarPedidos();
+                break;
+            case 3:
+                listarProductosCategoria();
                 break;
             default:
                 break;
@@ -301,6 +307,14 @@ public class VentanaController implements ActionListener, ChangeListener,
         }
     }
 
+    private void listarProductosCategoria() {
+        List<Producto> listaProductos = model.getProductos();
+        view.modeloListaProductosCategoria.removeAllElements();
+        for (Producto producto : listaProductos) {
+            view.modeloListaProductosCategoria.addElement(producto);
+        }
+    }
+
     /**
      * Carga los datos del cliente en el formulario
      * @param cliente
@@ -315,8 +329,17 @@ public class VentanaController implements ActionListener, ChangeListener,
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Cliente cliente = (Cliente) view.lClientes.getSelectedValue();
-        mostrarCliente(cliente);
+
+        if (e.getSource() == view.lClientes) {
+            Cliente cliente = (Cliente) view.lClientes.getSelectedValue();
+            mostrarCliente(cliente);
+        }
+        else if (e.getSource() == view.lProductosCategoria) {
+            Producto producto = (Producto) view.lProductosCategoria.getSelectedValue();
+            for (Categoria categoria : producto.getCategorias()) {
+                System.out.println(categoria.getNombre());
+            }
+        }
     }
 
     @Override
