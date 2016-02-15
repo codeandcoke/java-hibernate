@@ -24,6 +24,7 @@ public class Producto {
 
     @OneToMany(mappedBy="producto")
     private List<DetallePedido> detallesPedido;
+
     @ManyToMany(mappedBy="productos")
     private List<Categoria> categorias;
 

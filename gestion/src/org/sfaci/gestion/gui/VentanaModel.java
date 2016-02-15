@@ -263,7 +263,7 @@ public class VentanaModel {
     public Pedido getPedido(String numero) {
 
         Query query = HibernateUtil.getCurrentSession().
-                createQuery("FROM Pedido p WHERE p.numero = :numero");
+                createQuery("FROM Pedido p WHERE p.cliente.nombre = :nombre");
         query.setParameter("numero", numero);
 
         Pedido pedido = (Pedido) query.uniqueResult();
