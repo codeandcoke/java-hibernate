@@ -24,10 +24,10 @@ import org.sfsoft.hibernate.util.Util.Accion;
 import com.toedter.calendar.JDateChooser;
 
 /**
- * Dialog con el que el usuario introduce información sobre un Actor
+ * Dialog con el que el usuario introduce informaci√≥n sobre un Actor
  * para insertar o modificar
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 public class JActor extends JDialog {
 
@@ -46,7 +46,7 @@ public class JActor extends JDialog {
 	private Util.Accion accion;
 
 	/**
-	 * Getters y setters para obtener y fijar informaciÛn en la ventana
+	 * Getters y setters para obtener y fijar informaci√≥n en la ventana
 	 * @return
 	 */
 	
@@ -82,7 +82,7 @@ public class JActor extends JDialog {
 	}
 
 	/**
-	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaciÛn de las cajas de texto
+	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaci√≥n de las cajas de texto
 	 * y cierra la ventana
 	 */
 	private void aceptar() {

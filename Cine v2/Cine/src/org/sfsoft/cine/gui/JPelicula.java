@@ -34,10 +34,10 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.ListSelectionModel;
 
 /**
- * Dialog con el que el usuario introduce información sobre un Director
+ * Dialog con el que el usuario introduce informaci√≥n sobre un Director
  * para insertar o modificar
  * @author Santiago Faci
- * @version 1.0
+ * @version curso 2014-2015
  */
 public class JPelicula extends JDialog {
 
@@ -64,7 +64,7 @@ public class JPelicula extends JDialog {
 	private List<Actor> actoresSeleccionados;
 
 	/**
-	 * Getters y setters para obtener y fijar informaciÛn en la ventana
+	 * Getters y setters para obtener y fijar informaci√≥n en la ventana
 	 * @return
 	 */
 	
@@ -102,7 +102,7 @@ public class JPelicula extends JDialog {
 	}
 
 	/**
-	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaciÛn de las cajas de texto
+	 * Se invoca cuando el usuario ha pulsado en Aceptar. Recoge y valida la informaci√≥n de las cajas de texto
 	 * y cierra la ventana
 	 */
 	private void aceptar() {
@@ -167,7 +167,7 @@ public class JPelicula extends JDialog {
 	 */
 	public JPelicula() {
 		setModal(true);
-		setTitle("PelÌcula");
+		setTitle("Pel√≠cula");
 		setBounds(100, 100, 357, 483);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
@@ -177,7 +177,7 @@ public class JPelicula extends JDialog {
 		tfTitulo = new JTextField();
 		tfTitulo.setColumns(10);
 		
-		lblNewLabel = new JLabel("T\u00EDtulo");
+		lblNewLabel = new JLabel("T√≠tulo");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
 		lblNewLabel_2 = new JLabel("Fecha Estreno");

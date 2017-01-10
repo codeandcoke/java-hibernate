@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://C:/librerias/mysql-connector-java-5.1.27-bin.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-core-4.2.8.Final.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/javassist-3.18.1-GA.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/jboss-logging-3.1.0.GA.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/antlr-2.7.7.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/dom4j-1.6.1.jar" />
+    <libelement value="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-commons-annotations-4.0.2.Final.jar" />
+    <libelement value="file://C:/librerias/jcalendar/jgoodies-looks-2.4.1.jar" />
+    <libelement value="file://C:/librerias/jcalendar/jcalendar-1.4.jar" />
+    <libelement value="file://C:/librerias/jcalendar/jgoodies-common-1.2.0.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.27-bin.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/mysql-connector-java-5.1.27-bin.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hibernate-core-4.2.8.Final.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-core-4.2.8.Final.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hibernate-jpa-2.0-api-1.0.1.Final.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javassist-3.18.1-GA.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/javassist-3.18.1-GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jboss-logging-3.1.0.GA.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/jboss-logging-3.1.0.GA.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jboss-transaction-api_1.1_spec-1.0.1.Final.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="antlr-2.7.7.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/antlr-2.7.7.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="dom4j-1.6.1.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/dom4j-1.6.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hibernate-commons-annotations-4.0.2.Final.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/hibernate-release-4.2.8.Final/lib/required/hibernate-commons-annotations-4.0.2.Final.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jgoodies-looks-2.4.1.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/jcalendar/jgoodies-looks-2.4.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jcalendar-1.4.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/jcalendar/jcalendar-1.4.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jgoodies-common-1.2.0.jar">
+        <CLASSES>
+          <root url="file://C:/librerias/jcalendar/jgoodies-common-1.2.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="libs" level="project" />
+  </component>
+</module>

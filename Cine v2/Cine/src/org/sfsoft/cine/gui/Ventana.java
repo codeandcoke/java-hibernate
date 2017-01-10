@@ -27,7 +27,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
-* @author Santiago Faci
+ * Clase principal
+ * @author Santiago Faci
+ * @version curso 2014-2015
 */
 public class Ventana {
 
@@ -207,7 +209,7 @@ public class Ventana {
 			tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 			tabbedPane.addTab("Actores", null, getTabActores(), null);
 			tabbedPane.addTab("Directores", null, getTabDirectores(), null);
-			tabbedPane.addTab("Pel\u00EDculas", null, getTabPeliculas(), null);
+			tabbedPane.addTab("Películas", null, getTabPeliculas(), null);
 		}
 		return tabbedPane;
 	}
@@ -237,7 +239,7 @@ public class Ventana {
 	}
 	public JButton getBtAnadir() {
 		if (btAnadir == null) {
-			btAnadir = new JButton("A�adir");
+			btAnadir = new JButton("Añadir");
 			btAnadir.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					alta();
