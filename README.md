@@ -3,6 +3,7 @@ java-hibernate
 
 Ejemplos de programación con Bases de Datos en Java utilizando Hibernate
 
+- **CRUDHibernate**: Aplicación que muestra las operaciones básicas (CRUD) sobre una Base de Datos utilizando Hibernate
 - **Cine**: Primera versión de una aplicación de gestión de datos utilizando Hibernate
 - **Cine_v2**: Aplicación de gestión de datos utilizando Hibernate
 - **HibernateRelacion1a1**: Cómo mapear una relación 1 a 1 utilizando Hibernate en Java
